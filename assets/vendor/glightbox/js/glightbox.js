@@ -561,7 +561,7 @@
       return el >= parseInt(newIndex);
     });
     var nextFocus = nextOrders.sort()[0];
-    return document.querySelector(".gbtn[data-taborder=/"".concat(nextFocus, "/"]"));
+    return document.querySelector(".gbtn[data-taborder=\"".concat(nextFocus, "\"]"));
   }
 
   function keyboardNavigation(instance) {
@@ -1791,29 +1791,29 @@
     var customPlaceholder = false;
     slideMedia.style.maxWidth = data.width;
     injectAssets(this.settings.plyr.js, 'Plyr', function () {
-      if (!provider && url.match(/vimeo/.com//([0-9]*)/)) {
+      if (!provider && url.match(/vimeo\.com\/([0-9]*)/)) {
         provider = 'vimeo';
       }
 
-      if (!provider && (url.match(/(youtube/.com|youtube-nocookie/.com)//watch/?v=([a-zA-Z0-9/-_]+)/) || url.match(/youtu/.be//([a-zA-Z0-9/-_]+)/) || url.match(/(youtube/.com|youtube-nocookie/.com)//embed//([a-zA-Z0-9/-_]+)/))) {
+      if (!provider && (url.match(/(youtube\.com|youtube-nocookie\.com)\/watch\?v=([a-zA-Z0-9\-_]+)/) || url.match(/youtu\.be\/([a-zA-Z0-9\-_]+)/) || url.match(/(youtube\.com|youtube-nocookie\.com)\/embed\/([a-zA-Z0-9\-_]+)/))) {
         provider = 'youtube';
       }
 
       if (provider === 'local' || !provider) {
         provider = 'local';
         var html = '<video id="' + videoID + '" ';
-        html += "style=/"background:#000; max-width: ".concat(data.width, ";/" ");
+        html += "style=\"background:#000; max-width: ".concat(data.width, ";\" ");
         html += 'preload="metadata" ';
         html += 'x-webkit-airplay="allow" ';
         html += 'playsinline ';
         html += 'controls ';
         html += 'class="gvideo-local">';
-        html += "<source src=/"".concat(url, "/">");
+        html += "<source src=\"".concat(url, "\">");
         html += '</video>';
         customPlaceholder = createHTML(html);
       }
 
-      var placeholder = customPlaceholder ? customPlaceholder : createHTML("<div id=/"".concat(videoID, "/" data-plyr-provider=/"").concat(provider, "/" data-plyr-embed-id=/"").concat(url, "/"></div>"));
+      var placeholder = customPlaceholder ? customPlaceholder : createHTML("<div id=\"".concat(videoID, "\" data-plyr-provider=\"").concat(provider, "\" data-plyr-embed-id=\"").concat(url, "\"></div>"));
       addClass(videoWrapper, "".concat(provider, "-video gvideo"));
       videoWrapper.appendChild(placeholder);
       videoWrapper.setAttribute('data-id', videoID);
@@ -1859,7 +1859,7 @@
 
     if (content) {
       if (isString(content)) {
-        innerContent = createHTML("<div class=/"ginlined-content/">".concat(content, "</div>"));
+        innerContent = createHTML("<div class=\"ginlined-content\">".concat(content, "</div>"));
       }
 
       if (isNode(content)) {
@@ -1959,23 +1959,23 @@
         var origin = url;
         url = url.toLowerCase();
 
-        if (url.match(//.(jpeg|jpg|jpe|gif|png|apn|webp|avif|svg)/) !== null) {
+        if (url.match(/\.(jpeg|jpg|jpe|gif|png|apn|webp|avif|svg)/) !== null) {
           return 'image';
         }
 
-        if (url.match(/(youtube/.com|youtube-nocookie/.com)//watch/?v=([a-zA-Z0-9/-_]+)/) || url.match(/youtu/.be//([a-zA-Z0-9/-_]+)/) || url.match(/(youtube/.com|youtube-nocookie/.com)//embed//([a-zA-Z0-9/-_]+)/)) {
+        if (url.match(/(youtube\.com|youtube-nocookie\.com)\/watch\?v=([a-zA-Z0-9\-_]+)/) || url.match(/youtu\.be\/([a-zA-Z0-9\-_]+)/) || url.match(/(youtube\.com|youtube-nocookie\.com)\/embed\/([a-zA-Z0-9\-_]+)/)) {
           return 'video';
         }
 
-        if (url.match(/vimeo/.com//([0-9]*)/)) {
+        if (url.match(/vimeo\.com\/([0-9]*)/)) {
           return 'video';
         }
 
-        if (url.match(//.(mp4|ogg|webm|mov)/) !== null) {
+        if (url.match(/\.(mp4|ogg|webm|mov)/) !== null) {
           return 'video';
         }
 
-        if (url.match(//.(mp3|wav|wma|aac|ogg)/) !== null) {
+        if (url.match(/\.(mp3|wav|wma|aac|ogg)/) !== null) {
           return 'audio';
         }
 
@@ -2053,9 +2053,9 @@
         if (!isNil(config)) {
           var cleanKeys = [];
           each(data, function (v, k) {
-            cleanKeys.push(';//s?' + k);
+            cleanKeys.push(';\\s?' + k);
           });
-          cleanKeys = cleanKeys.join('//s?:|');
+          cleanKeys = cleanKeys.join('\\s?:|');
 
           if (config.trim() !== '') {
             each(data, function (val, key) {
@@ -2065,7 +2065,7 @@
               var matches = str.match(regex);
 
               if (matches && matches.length && matches[1]) {
-                var value = matches[1].trim().replace(/;/s*$/, '');
+                var value = matches[1].trim().replace(/;\s*$/, '');
                 data[key] = _this.sanitizeValue(value);
               }
             });
@@ -2486,8 +2486,8 @@
       prev: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 477.175 477.175" xml:space="preserve"><g><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/></g></svg>'
     }
   };
-  defaults.slideHTML = "<div class=/"gslide/">/n    <div class=/"gslide-inner-content/">/n        <div class=/"ginner-container/">/n            <div class=/"gslide-media/">/n            </div>/n            <div class=/"gslide-description/">/n                <div class=/"gdesc-inner/">/n                    <h4 class=/"gslide-title/"></h4>/n                    <div class=/"gslide-desc/"></div>/n                </div>/n            </div>/n        </div>/n    </div>/n</div>";
-  defaults.lightboxHTML = "<div id=/"glightbox-body/" class=/"glightbox-container/" tabindex=/"-1/" role=/"dialog/" aria-hidden=/"false/">/n    <div class=/"gloader visible/"></div>/n    <div class=/"goverlay/"></div>/n    <div class=/"gcontainer/">/n    <div id=/"glightbox-slider/" class=/"gslider/"></div>/n    <button class=/"gclose gbtn/" aria-label=/"Close/" data-taborder=/"3/">{closeSVG}</button>/n    <button class=/"gprev gbtn/" aria-label=/"Previous/" data-taborder=/"2/">{prevSVG}</button>/n    <button class=/"gnext gbtn/" aria-label=/"Next/" data-taborder=/"1/">{nextSVG}</button>/n</div>/n</div>";
+  defaults.slideHTML = "<div class=\"gslide\">\n    <div class=\"gslide-inner-content\">\n        <div class=\"ginner-container\">\n            <div class=\"gslide-media\">\n            </div>\n            <div class=\"gslide-description\">\n                <div class=\"gdesc-inner\">\n                    <h4 class=\"gslide-title\"></h4>\n                    <div class=\"gslide-desc\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+  defaults.lightboxHTML = "<div id=\"glightbox-body\" class=\"glightbox-container\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"false\">\n    <div class=\"gloader visible\"></div>\n    <div class=\"goverlay\"></div>\n    <div class=\"gcontainer\">\n    <div id=\"glightbox-slider\" class=\"gslider\"></div>\n    <button class=\"gclose gbtn\" aria-label=\"Close\" data-taborder=\"3\">{closeSVG}</button>\n    <button class=\"gprev gbtn\" aria-label=\"Previous\" data-taborder=\"2\">{prevSVG}</button>\n    <button class=\"gnext gbtn\" aria-label=\"Next\" data-taborder=\"1\">{nextSVG}</button>\n</div>\n</div>";
 
   var GlightboxInit = function () {
     function GlightboxInit() {
