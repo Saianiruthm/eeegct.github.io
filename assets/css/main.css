@@ -236,7 +236,6 @@ section {
   transition: all 0.5s;
   z-index: 997;
   padding: 24px 0;
-  margin-bottom: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -260,7 +259,7 @@ section {
   font-weight: 700;
   color: #fff;
   font-family: var(--font-secondary);
-  margin: 0;
+   margin-bottom: 20px;
 }
 
 /*--------------------------------------------------------------
